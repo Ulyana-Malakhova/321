@@ -181,6 +181,37 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
 	struct telephone spisok;
+	init(&spisok);
+	int d, p, t;
+	vvod(&spisok);
+	vivod(&spisok);
+	do {
+		do {
+			printf("Выберите действие, которое хотите совершить:\n1.Вывод информации\n2.Зарядить телефон\n3.Изменить данные памяти\n4.Ввод новых данных\n5.Выход\n");
+			t = scanf("%d", &d); while (getchar() != '\n');
+		} while (d < 1 || d>5 || t != 1);
+		if (d == 1)
+			vivod(&spisok);
+		if (d == 2)
+		{
+			zaryad(&spisok);
+		}
+		if (d == 3)
+			change(&spisok);
+		if (d == 4) {
+			vvod(&spisok);
+			vivod(&spisok);
+		}
+		if (d == 5) {
+			do {
+				printf("Вы действительно хотите выйти? (1-Да,2-Нет):");
+				t = scanf("%d", &p); while (getchar() != '\n');
+			} while (t != 1 || p < 1 || p>2);
+			if (p == 1)
+				return 0;
+		}
+		printf("\nХотите продолжить? Да - любая клавиша, Нет -ESC\n");
+	} while (_getch() != 27);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
