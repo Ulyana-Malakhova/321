@@ -41,6 +41,25 @@ struct telephone {
 	general_data inform5;
 };
 
+void init(struct telephone* spisok)
+{
+	spisok->inform1.charge = 0;
+	spisok->inform1.memory = 0;
+	*spisok->inform1.internet = (char*)calloc(10, sizeof(char));
+	spisok->inform2.width = 0;
+	spisok->inform2.height = 0;
+	spisok->inform2.thickness = 0;
+	spisok->inform2.weight = 0;
+	*spisok->inform3.opersystem = (char*)calloc(50, sizeof(char));
+	spisok->inform3.internalm = 0;
+	*spisok->inform3.card = (char*)calloc(20, sizeof(char));
+	spisok->inform4.diagonal = 0;
+	*spisok->inform4.pixel = (char*)calloc(30, sizeof(char));
+	*spisok->inform5.country = (char*)calloc(50, sizeof(char));
+	*spisok->inform5.model = (char*)calloc(20, sizeof(char));
+	spisok->inform5.year = 0;
+}
+
 int main()
 {
 	setlocale(LC_ALL, "Rus");
