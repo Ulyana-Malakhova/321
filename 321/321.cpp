@@ -122,6 +122,11 @@ void vivod(struct telephone* spisok)
 	printf("Общие данные:\n");
 	printf("-страна-производитель:%s\n-модель:%s\n-год выпуска:%d\n", *spisok->inform5.country, *spisok->inform5.model, spisok->inform5.year);
 }
+void zaryad(struct telephone* spisok) {
+	printf("Сколько стало процентов заряда на телефоне?\n");
+	scanf("%d", &spisok->inform1.charge);
+	while (getchar() != '\n');
+}
 
 int main()
 {
