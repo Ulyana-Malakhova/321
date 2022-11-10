@@ -1,11 +1,50 @@
 ﻿// 321.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+
+struct current_state {
+	int charge;
+	int memory;
+	char* internet[10];
+};
+struct dimensions {
+	int width;
+	int height;
+	int thickness;
+	int weight;
+};
+struct system_t {
+	char* opersystem[50];
+	int internalm;
+	char* card[20];
+};
+struct screen {
+	double diagonal;
+	char* pixel[30];
+};
+struct general_data {
+	char* country[50];
+	char* model[20];
+	int year;
+};
+struct telephone {
+	current_state inform1;
+	dimensions inform2;
+	system_t inform3;
+	screen inform4;
+	general_data inform5;
+};
 
 int main()
 {
-    
+	setlocale(LC_ALL, "Rus");
+	struct telephone spisok;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
