@@ -108,6 +108,20 @@ void vvod(struct telephone* spisok)
 	printf("Год выпуска: ");
 	scanf("%d", &spisok->inform5.year);
 }
+void vivod(struct telephone* spisok)
+{
+	printf("Информация о телефоне:\n");
+	printf("Нынешнее состояние:\n");
+	printf("-заряд:%d\n-память:%d\n-интернет:%s\n", spisok->inform1.charge, spisok->inform1.memory, *spisok->inform1.internet);
+	printf("Параметры:\n");
+	printf("-ширина:%d\n-высота:%d\n-толщина:%d\n-вес:%d\n", spisok->inform2.width, spisok->inform2.height, spisok->inform2.thickness, spisok->inform2.weight);
+	printf("Система:\n");
+	printf("-операционная система:%s\n-встроенная память:%d\n-карта памяти:%s\n", *spisok->inform3.opersystem, spisok->inform3.internalm, *spisok->inform3.card);
+	printf("Экран:\n");
+	printf("-диагональ:%lf\n-плотность пикселей:%s\n", spisok->inform4.diagonal, *spisok->inform4.pixel);
+	printf("Общие данные:\n");
+	printf("-страна-производитель:%s\n-модель:%s\n-год выпуска:%d\n", *spisok->inform5.country, *spisok->inform5.model, spisok->inform5.year);
+}
 
 int main()
 {
