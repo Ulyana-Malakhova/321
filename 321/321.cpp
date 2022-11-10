@@ -127,6 +127,55 @@ void zaryad(struct telephone* spisok) {
 	scanf("%d", &spisok->inform1.charge);
 	while (getchar() != '\n');
 }
+void change(struct telephone* spisok) {
+	int i, t, j, k;
+	do {
+		printf("Изменения с объемом памяти связаны с:\n1.Изменением состояния карты памяти\n2.Изменением объема информации\n");
+		t = scanf("%d", &i); while (getchar() != '\n');
+	} while (t != 1 || i < 0 || i > 2);
+	if (i == 1) {
+		do {
+			printf("1.Карту памяти ставят в телефон\n2.Карту памяти убирают из телефона\n");
+			t = scanf("%d", &j); while (getchar() != '\n');
+		} while (t != 1 || j < 0 || j > 2);
+		do {
+			printf("Какой объем памяти у карты?\n");
+			t = scanf("%d", &k); while (getchar() != '\n');
+		} while (t != 1 || k < 0);
+		if (j == 1) {
+			if (strcmp(*spisok->inform3.card, "no") == 0) {
+				spisok->inform1.memory += k;
+				strcpy(*spisok->inform3.card, "yes");
+			}
+			else
+				printf("Карта или уже находится в телефоне, или информация о ней неверна\n");
+		}
+		if (j == 2) {
+			if (strcmp(*spisok->inform3.card, "yes") == 0) {
+				spisok->inform1.memory -= k;
+				strcpy(*spisok->inform3.card, "no");
+			}
+			else
+				printf("Карты или нет в телефоне, или информация о ней неверна\n");
+		}
+	}
+	if (i == 2) {
+		do {
+			printf("1.В телефон добавляют информацию\n2.Из телефона удаляют информацию\n");
+			t = scanf("%d", &j); while (getchar() != '\n');
+		} while (t != 1 || j < 0 || j > 2);
+		do {
+			printf("Какой объем памяти добавили или удалили?\n");
+			t = scanf("%d", &k); while (getchar() != '\n');
+		} while (t != 1 || k < 0);
+		if (j == 1) {
+			spisok->inform1.memory -= k;
+		}
+		if (j == 2) {
+			spisok->inform1.memory += k;
+		}
+	}
+}
 
 int main()
 {
