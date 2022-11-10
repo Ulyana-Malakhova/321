@@ -59,6 +59,55 @@ void init(struct telephone* spisok)
 	*spisok->inform5.model = (char*)calloc(20, sizeof(char));
 	spisok->inform5.year = 0;
 }
+void vvod(struct telephone* spisok)
+{
+	char vvod[50];
+	printf("\nВведем информацию о нынешнем состоянии\n");
+	printf("Заряд(в процентах): ");
+	scanf("%d", &spisok->inform1.charge);
+	printf("Свободная память(Гб): ");
+	scanf("%d", &spisok->inform1.memory);
+	while (getchar() != '\n');
+	printf("Интернет: ");
+	gets_s(vvod);
+	strcpy(*spisok->inform1.internet, vvod);
+	printf("\nВведем информацию о параметрах телефона\n");
+	printf("Ширина(мм): ");
+	scanf("%d", &spisok->inform2.width);
+	printf("Высота(мм): ");
+	scanf("%d", &spisok->inform2.height);
+	printf("Толщина(мм): ");
+	scanf("%d", &spisok->inform2.thickness);
+	printf("Вес(в граммах): ");
+	scanf("%d", &spisok->inform2.weight);
+	while (getchar() != '\n');
+	printf("\nВведем информацию о системе\n");
+	printf("Операционная система: ");
+	gets_s(vvod);
+	strcpy(*spisok->inform3.opersystem, vvod);//vvod
+	printf("Встроенная память(Гб): ");
+	scanf("%d", &spisok->inform3.internalm);
+	while (getchar() != '\n');
+	printf("Карта памяти(yes/no): ");
+	gets_s(vvod);
+	strcpy(*spisok->inform3.card, vvod);
+	printf("\nВведем информацию об экране\n");
+	printf("Диагональ(дюйм): ");
+	scanf("%lf", &spisok->inform4.diagonal);
+	while (getchar() != '\n');
+	printf("Плотность пикселей(ppi): ");
+	gets_s(vvod);
+	strcpy(*spisok->inform4.pixel, vvod);
+	printf("\nВведем информацию об общих данных\n");
+	printf("Страна-производитель: ");
+	gets_s(vvod);
+	strcpy(*spisok->inform5.country, vvod);
+	printf("Модель: ");
+	gets_s(vvod);
+	strcpy(*spisok->inform5.model, vvod);
+	printf("Год выпуска: ");
+	scanf("%d", &spisok->inform5.year);
+}
 
 int main()
 {
